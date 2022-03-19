@@ -15,6 +15,7 @@ Tech Stack:
 ## Authors
 
 - [@Ashok Chakravarthi](https://www.github.com/ashokcs)
+- - [@Archana Vinayagam](https://www.github.com/archu0406)
 
 
 ## Deployment
