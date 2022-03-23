@@ -8,7 +8,6 @@
   height:300px;
 }
 
-
 .myDiv {
   margin:auto;
   margin-top:50px;
@@ -16,7 +15,7 @@
   padding:10px;
   box-shadow: 10px 10px 10px #808080;
   border-radius: 1em;
-  background-color: rgb(136, 165, 207);
+  background-color: rgb(182, 192, 206);
 }
 
 /* Clearfix (clear floats) */

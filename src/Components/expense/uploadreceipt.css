@@ -1,0 +1,24 @@
+p {
+    font-size: 20px;
+}
+
+.container {
+    background-color: rgb(192, 192, 192);
+    margin: auto;
+    width: 30%;
+        border-radius: 15px;
+}
+
+#file_upload_section{
+    padding: 2em;
+}
+
+#progress_value {
+    background-color: rgb(116, 194, 92);
+    color: white;
+    height: 10px;
+    text-align: right;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 0%;
+}

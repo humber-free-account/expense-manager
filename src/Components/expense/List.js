@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ExpenseDataService from "../service";
 import './list.css'; 
 import Logout from "../../Logout";
+import { Link } from 'react-router-dom';
+
 export default class ExpenseList extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,6 @@ export default class ExpenseList extends Component {
         name: data.name,
         amount: data.amount,
         description: data.description,
-        published: data.published,
       });
     });
     this.setState({
@@ -42,6 +43,10 @@ export default class ExpenseList extends Component {
       currentExpense: null,
       currentIndex: -1,
     });
+  }
+
+  goToEditPage(id){
+      window.location = '/editexpense?id='+ id;
   }
   
   render() {
@@ -62,8 +67,7 @@ export default class ExpenseList extends Component {
               expenses.map((expense, index) => (
                 <li
                   className={ "note" } key={index}>
-                  <p className="expese_name">{expense.name + "   -      " + expense.description}</p> <h4 className="amount">CAD$ {expense.amount}</h4> 
-
+                  <p className="expese_name">{expense.name + "   -      " + expense.description} &nbsp;&nbsp;&nbsp;&nbsp;<Link to={`/editexpense?id=${expense.id}`}>Edit</Link> &nbsp;&nbsp;&nbsp;&nbsp; </p> <h5 className="amount">CAD$ {expense.amount}</h5>
                 </li>
               ))}
           </ul>

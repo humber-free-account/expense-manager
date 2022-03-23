@@ -1,7 +1,11 @@
 import firebase from "../firebase.js";
+import { collection, query, where } from "firebase/firestore";
 const db = firebase.collection("/expense");
 class ExpenseService {
   getAll() {
+    return db;
+  }
+  getSelectedExpenseById(id) {
     return db;
   }
   create(expense) {

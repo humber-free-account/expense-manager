@@ -8,6 +8,11 @@ import Form from './Components/Common/Form';
 import Home from './Components/Home';
 
 /* <!-- Author Ashokchakravarthi, Archana 
+    Defined Add and Edit Expense pages for routing --> */
+import AddExpense from './Components/expense/AddExpense';
+import EditExpense from './Components/expense/EditExpense';
+
+/* <!-- Author Ashokchakravarthi, Archana 
     Routes is the parent element  of Route to handle the authenticated/unauthenticated user in the app --> */
 import { Routes, Route, useNavigate} from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
@@ -18,40 +23,74 @@ import 'react-toastify/dist/ReactToastify.css';
     Used to download Expense Receipts from Firebase Storage --> */
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 
+function AppIn(){
+
+}
 
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   let navigate = useNavigate();
 
-const storage = getStorage();
+/*const storage = getStorage();
 const listRef = ref(storage, 'receipts');
+let i=0; 
+const receipts_list  =  [];
+const receipts_list_url  =  [];
 
-/* <!-- Author Ashokchakravarthi, Archana 
-    To find all the file items inside the Storage directory --> */
-listAll(listRef)
-  .then((res) => {
-    let i=1;
-    res.items.forEach((itemRef) => {
-        getDownloadURL(ref(storage, itemRef.name))
-          .then((url) => {
-         const xhr = new XMLHttpRequest();
-        xhr.responseType = 'blob';
-        xhr.onload = (event) => {
-          const blob = xhr.response;
-        };
-        xhr.open('GET', url);
-        xhr.send();
-    
-        const img = document.getElementById('image'+(i++));
-        img.setAttribute('src', url);
-      })
-      .catch((error) => {
+ <!-- Author Ashokchakravarthi, Archana 
+    To find all the file items inside the Storage directory --> 
+
+   listAll(listRef).then((res) => {
+      res.items.forEach((itemRef) => {
+        var itemRefName = itemRef.name;
+        if(!receipts_list.includes( itemRefName ) )
+        receipts_list.push(itemRefName);
       });
     });
+    const uniqueString = [...new Set(receipts_list)];
+
+  //const uniqueString = [...new Set(receipts_list)];
+  //console.log("rakidarakida: "+uniqueString);
+
+
+  listAll(listRef)
+  .then((res) => {
+      res.items.forEach((itemRef) => {
+        if(receipts_list.includes(itemRef.name))
+        {
+          console.log('final: '+itemRef);
+          receipts_list.pop(itemRef);
+        }
+        
+        getDownloadURL(ref(listRef, itemRef.name))
+          .then((url) => {
+
+            if(!receipts_list_url.includes(url))
+            {
+              receipts_list_url.push(url);
+            } 
+              i++;
+              const xhr = new XMLHttpRequest();
+                xhr.responseType = 'blob';
+                xhr.onload = (event) => {
+                      const blob = xhr.response;
+                };
+                xhr.open('GET', url);
+                xhr.send();
+
+                var imgage = document.createElement('img');
+                imgage.setAttribute('src', url);
+                document.getElementById('receipts_list').appendChild(imgage);
+        })
+        .catch((error) => {
+        });
+
+      });
+    
   }).catch((error) => {
   });
-
+*/
 
   /* <!-- Author Ashokchakravarthi, Archana 
     User will get Autht Token for his/her login session and stored in cookie --> */
@@ -85,6 +124,9 @@ listAll(listRef)
           }
         })
     }
+    if(id == 3){
+      navigate('/add');
+    }
   }
 
   useEffect(() => {
@@ -109,6 +151,7 @@ listAll(listRef)
                 handleAction={() => handleAction(1)}
               />}
           />
+
           <Route
             path='/register'
             element={
@@ -125,6 +168,19 @@ listAll(listRef)
             element={
               <Home />}
           />
+
+          <Route
+            path='/addexpense'
+            element={
+              <AddExpense />}
+          />
+
+          <Route
+            path='/editexpense'
+            element={
+              <EditExpense />}
+          />
+
         </Routes>
       </>
     </div>
