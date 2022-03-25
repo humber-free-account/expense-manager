@@ -19,13 +19,6 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-/* <!-- Author Ashokchakravarthi, Archana 
-    Used to download Expense Receipts from Firebase Storage --> */
-import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
-
-function AppIn(){
-
-}
 
 function App() {
   const [email, setEmail] = useState('');

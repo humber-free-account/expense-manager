@@ -1,9 +1,6 @@
 import React from 'react';
 import './receipts.css'; 
-import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
-import firebase from "firebase/compat/app"
 import 'firebase/auth';
-import FileUploader from "react-firebase-file-uploader";
 
 /*const download = () => {
     const storage = getStorage();
