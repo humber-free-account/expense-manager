@@ -42,7 +42,7 @@ To deploy this project run
 ```
 
 ## To access the app that is already deployed in Heroku, click the below link.
-[Expense Manager App](ttps://expense-manager-ashok.herokuapp.com/home)
+[@Expense Manager App](https://expense-manager-ashok.herokuapp.com/home)
 
 
 ## Badges
