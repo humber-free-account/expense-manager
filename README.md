@@ -21,7 +21,6 @@ Tech Stack:
 - [@Archana Vinayagam](https://www.github.com/archu0406)
 
 
-
 ## Run in Local Machiine
 
 To run this project in you local machine
